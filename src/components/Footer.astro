@@ -1,4 +1,5 @@
 ---
+import Logo from "./Logo.astro";
 import { WHATSAPP_URL } from "../utils/whatsapp";
 
 const year = new Date().getFullYear();
@@ -16,41 +17,7 @@ const links = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Brand -->
       <div>
-        <div class="flex items-center gap-2 mb-4">
-          <svg
-            width="36"
-            height="36"
-            viewBox="0 0 40 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <defs>
-              <linearGradient id="footer-gold-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#DDA23C" />
-                <stop offset="57.66%" stop-color="#C27A18" />
-                <stop offset="100%" stop-color="#FEF3A4" />
-              </linearGradient>
-            </defs>
-            <rect width="40" height="40" rx="8" fill="url(#footer-gold-gradient)" />
-            <text
-              x="50%"
-              y="54%"
-              dominant-baseline="middle"
-              text-anchor="middle"
-              fill="#050507"
-              font-weight="700"
-              font-size="18"
-              font-family="Inter, sans-serif"
-            >
-              AG
-            </text>
-          </svg>
-          <span class="text-lg font-bold leading-tight">
-            AG Soluciones<br />
-            <span class="text-sm font-medium gold-gradient-text">Contables</span>
-          </span>
-        </div>
+        <Logo dark class="mb-4" />
         <p class="text-sm text-white/60 max-w-xs">
           Te acompañamos en cada decisión contable y financiera con
           transparencia y confianza.
