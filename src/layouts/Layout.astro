@@ -29,11 +29,119 @@ const {
     />
     <title>{title} | AG Soluciones Contables</title>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col" style="background-color: black;">
     <Navbar />
     <main class="flex-1">
       <slot />
     </main>
     <Footer />
+
+    <script is:inline>
+      (() => {
+        const setupMotion = () => {
+          const main = document.querySelector("main");
+          if (!main) return;
+
+          const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          const revealTargets = [];
+
+          const registerReveal = (element, options = {}) => {
+            if (!(element instanceof HTMLElement)) return;
+            if (element.dataset.motionReady === "true") return;
+
+            const { direction = "up", delay = 0, lift = false } = options;
+
+            element.dataset.motionReady = "true";
+            element.classList.add("reveal");
+            element.classList.add(direction === "left" ? "reveal-left" : direction === "right" ? "reveal-right" : "reveal-up");
+
+            if (delay >= 1 && delay <= 6) {
+              element.classList.add(`delay-${delay}`);
+            }
+
+            if (
+              lift &&
+              (element.matches("a, button") ||
+                element.classList.contains("group") ||
+                ((element.classList.contains("rounded-xl") || element.classList.contains("rounded-2xl")) && element.classList.contains("border")))
+            ) {
+              element.classList.add("lift-hover");
+            }
+
+            revealTargets.push(element);
+          };
+
+          main.querySelectorAll("section").forEach((section) => {
+            section.querySelectorAll("h1, h2").forEach((heading, index) => {
+              registerReveal(heading, { direction: "up", delay: Math.min(index + 1, 3) });
+            });
+
+            const leadParagraphs = Array.from(section.querySelectorAll("p")).filter(
+              (paragraph) => !paragraph.closest("form")
+            );
+
+            leadParagraphs.slice(0, 2).forEach((paragraph, index) => {
+              registerReveal(paragraph, { direction: "up", delay: Math.min(index + 2, 4) });
+            });
+
+            section.querySelectorAll(".grid").forEach((grid) => {
+              Array.from(grid.children).forEach((child, index) => {
+                if (!(child instanceof HTMLElement)) return;
+                if (child.tagName === "SCRIPT") return;
+
+                registerReveal(child, {
+                  direction: index % 2 === 0 ? "left" : "right",
+                  delay: (index % 6) + 1,
+                  lift: true,
+                });
+              });
+            });
+
+            section.querySelectorAll("form, .space-y-6 > div, .space-y-5 > div").forEach((block, index) => {
+              registerReveal(block, {
+                direction: "up",
+                delay: (index % 4) + 1,
+                lift: block instanceof HTMLElement && block.classList.contains("rounded-xl"),
+              });
+            });
+          });
+
+          main.querySelectorAll(".blur-3xl").forEach((shape) => {
+            shape.classList.add("float-gentle");
+          });
+
+          main.querySelectorAll("a.bg-primary, button.bg-primary").forEach((cta) => {
+            cta.classList.add("sheen-hover");
+          });
+
+          if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+            revealTargets.forEach((element) => element.classList.add("is-visible"));
+            return;
+          }
+
+          const observer = new IntersectionObserver(
+            (entries, observerRef) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-visible");
+                observerRef.unobserve(entry.target);
+              });
+            },
+            {
+              threshold: 0.14,
+              rootMargin: "0px 0px -8% 0px",
+            }
+          );
+
+          revealTargets.forEach((element) => observer.observe(element));
+        };
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", setupMotion, { once: true });
+        } else {
+          setupMotion();
+        }
+      })();
+    </script>
   </body>
 </html>

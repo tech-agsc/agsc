@@ -18,9 +18,9 @@ const serviceLinks = [
 const isServicePage = currentPath.startsWith("/servicios/");
 ---
 
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
+<header class="sticky top-0 z-50 bg-secondary/75 supports-[backdrop-filter]:bg-secondary/55 border-b border-white/10 backdrop-blur-xl">
   <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-    <Logo />
+    <Logo dark />
 
     <!-- Desktop nav -->
     <ul class="hidden md:flex items-center gap-8">
@@ -30,7 +30,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
             href={link.href}
             class:list={[
               "text-sm font-medium transition-colors hover:text-primary",
-              currentPath === link.href ? "text-primary" : "text-secondary",
+              currentPath === link.href ? "text-primary" : "text-white/80",
             ]}
           >
             {link.label}
@@ -43,7 +43,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
         <button
           class:list={[
             "flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary",
-            isServicePage ? "text-primary" : "text-secondary",
+            isServicePage ? "text-primary" : "text-white/80",
           ]}
           aria-expanded="false"
           aria-haspopup="true"
@@ -57,13 +57,13 @@ const isServicePage = currentPath.startsWith("/servicios/");
           id="services-menu"
           class="hidden absolute top-full left-1/2 -translate-x-1/2 w-64 pt-3"
         >
-          <div class="bg-white rounded-xl border border-border shadow-xl py-2">
+          <div class="bg-secondary rounded-xl border border-white/10 shadow-xl shadow-black/40 py-2">
             {serviceLinks.map((link) => (
               <a
                 href={link.href}
                 class:list={[
-                  "block px-4 py-2.5 text-sm transition-colors hover:bg-surface hover:text-primary",
-                  currentPath === link.href ? "text-primary bg-surface" : "text-secondary",
+                  "block px-4 py-2.5 text-sm transition-colors hover:bg-white/5 hover:text-primary",
+                  currentPath === link.href ? "text-primary bg-white/5" : "text-white/80",
                 ]}
               >
                 {link.label}
@@ -78,7 +78,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
           href="/contactanos/"
           class:list={[
             "text-sm font-medium transition-colors hover:text-primary",
-            currentPath === "/contactanos/" ? "text-primary" : "text-secondary",
+            currentPath === "/contactanos/" ? "text-primary" : "text-white/80",
           ]}
         >
           Contáctanos
@@ -98,7 +98,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
     <!-- Mobile menu button -->
     <button
       id="mobile-menu-btn"
-      class="md:hidden p-2 text-secondary"
+      class="md:hidden p-2 text-white"
       aria-label="Abrir menú"
       aria-expanded="false"
     >
@@ -117,7 +117,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
   <!-- Mobile nav -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden bg-white border-b border-border"
+    class="hidden md:hidden bg-secondary/90 border-b border-white/10 backdrop-blur-xl"
   >
     <ul class="flex flex-col px-4 py-4 gap-3">
       {links.map((link) => (
@@ -126,7 +126,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
             href={link.href}
             class:list={[
               "block text-sm font-medium transition-colors hover:text-primary",
-              currentPath === link.href ? "text-primary" : "text-secondary",
+              currentPath === link.href ? "text-primary" : "text-white/80",
             ]}
           >
             {link.label}
@@ -140,7 +140,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
           id="mobile-services-btn"
           class:list={[
             "flex items-center justify-between w-full text-sm font-medium transition-colors hover:text-primary",
-            isServicePage ? "text-primary" : "text-secondary",
+            isServicePage ? "text-primary" : "text-white/80",
           ]}
         >
           Servicios
@@ -148,14 +148,14 @@ const isServicePage = currentPath.startsWith("/servicios/");
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-        <ul id="mobile-services-menu" class="hidden ml-4 mt-2 space-y-2 border-l-2 border-border pl-4">
+        <ul id="mobile-services-menu" class="hidden ml-4 mt-2 space-y-2 border-l-2 border-white/20 pl-4">
           {serviceLinks.map((link) => (
             <li>
               <a
                 href={link.href}
                 class:list={[
                   "block text-sm transition-colors hover:text-primary",
-                  currentPath === link.href ? "text-primary" : "text-muted",
+                  currentPath === link.href ? "text-primary" : "text-white/65",
                 ]}
               >
                 {link.label}
@@ -170,7 +170,7 @@ const isServicePage = currentPath.startsWith("/servicios/");
           href="/contactanos/"
           class:list={[
             "block text-sm font-medium transition-colors hover:text-primary",
-            currentPath === "/contactanos/" ? "text-primary" : "text-secondary",
+            currentPath === "/contactanos/" ? "text-primary" : "text-white/80",
           ]}
         >
           Contáctanos
