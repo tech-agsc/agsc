@@ -1,0 +1,321 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Inicio" description="AG Soluciones Contables: soluciones contables, tributarias y financieras a la medida para empresas, emprendedores y personas naturales en Colombia.">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-secondary">
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="relative z-10">
+        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
+          +10 años de experiencia
+        </span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+          Soluciones contables que
+          <span class="text-primary">respaldan</span> tu crecimiento
+        </h1>
+        <p class="text-lg text-white/60 mb-8 max-w-xl">
+          Brindamos soluciones contables, tributarias y financieras a la medida
+          para empresas, emprendedores y personas naturales. Obtén cumplimiento
+          normativo, claridad financiera y respaldo estratégico para tomar
+          decisiones con confianza.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contactanos/"
+            class="inline-block bg-primary text-secondary font-semibold px-8 py-3.5 rounded-full hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
+          >
+            Agenda tu asesoría
+          </a>
+          <a
+            href="/sobre-nosotros/"
+            class="inline-block border-2 border-white/30 text-white font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors"
+          >
+            Conócenos
+          </a>
+        </div>
+      </div>
+      <!-- Hero Image -->
+      <div class="relative hidden lg:block">
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+          <!-- PLACEHOLDER: Reemplazar con foto del equipo o de una oficina moderna -->
+          <!-- Sugerencia: Foto del equipo de AG trabajando, o una oficina con documentos organizados -->
+          <img
+            src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=500&fit=crop"
+            alt="Equipo de asesores contables trabajando"
+            class="w-full h-[500px] object-cover"
+            loading="eager"
+          />
+        </div>
+        <div class="absolute -bottom-4 -left-4 bg-primary text-secondary px-5 py-3 rounded-xl font-bold text-sm shadow-lg">
+          450+ empresas asesoradas
+        </div>
+      </div>
+    </div>
+    <!-- Decorative -->
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Image -->
+        <div class="rounded-2xl overflow-hidden border border-border shadow-lg">
+          <!-- PLACEHOLDER: Reemplazar con foto de reunión con cliente o asesoría -->
+          <!-- Sugerencia: Foto de asesor explicando reportes financieros a un cliente -->
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=400&fit=crop"
+            alt="Asesoría contable personalizada"
+            class="w-full h-[400px] object-cover"
+            loading="lazy"
+          />
+        </div>
+        <!-- Text -->
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-widest text-primary">Sobre Nosotros</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-secondary mt-2 mb-4">
+            Más que contabilidad, respaldo estratégico
+          </h2>
+          <p class="text-muted mb-6 leading-relaxed">
+            Somos una firma de soluciones contables, tributarias y financieras que
+            acompaña a empresas, emprendedores y personas naturales en la toma de
+            decisiones estratégicas con ética y visión de crecimiento.
+          </p>
+          <div class="grid grid-cols-2 gap-4">
+            {[
+              { value: "98%", label: "Clientes satisfechos" },
+              { value: "100%", label: "Cumplimiento normativo" },
+              { value: "30%", label: "Optimización tributaria" },
+              { value: "450+", label: "Empresas asesoradas" },
+            ].map((stat) => (
+              <div class="p-4 rounded-xl bg-surface border border-border">
+                <div class="text-2xl font-extrabold text-primary mb-0.5">{stat.value}</div>
+                <div class="text-xs text-muted">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-16 md:py-24 bg-surface">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-semibold uppercase tracking-widest text-primary">Nuestros Servicios</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-secondary mt-2 mb-4">
+          Expertos en contabilidad, tributación y estrategia empresarial
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Contabilidad Integral -->
+        <a href="/servicios/contabilidad-integral/" class="group p-8 rounded-2xl bg-white border border-border hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all block">
+          <!-- PLACEHOLDER: Reemplazar con foto/ícono de contabilidad -->
+          <div class="w-full h-40 rounded-xl mb-5 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=500&h=200&fit=crop"
+              alt="Contabilidad integral"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
+            Contabilidad Integral
+          </h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Atendemos sectores como servicios, turismo, salud, industria,
+            construcción y propiedad horizontal. Incluye nómina, facturación
+            electrónica y cumplimiento DIAN.
+          </p>
+          <span class="inline-flex items-center gap-1 text-sm text-primary font-medium mt-4">
+            Conocer más
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- Tributación y Cumplimiento -->
+        <a href="/servicios/tributacion-y-cumplimiento/" class="group p-8 rounded-2xl bg-white border border-border hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all block">
+          <div class="w-full h-40 rounded-xl mb-5 overflow-hidden">
+            <!-- PLACEHOLDER: Reemplazar con foto de documentos tributarios -->
+            <img
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&h=200&fit=crop"
+              alt="Tributación y cumplimiento"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
+            Tributación y Cumplimiento
+          </h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Gestionamos declaraciones tributarias, Régimen Simple, informes bajo
+            NIIF y trámites ante la DIAN para que te enfoques en lo que
+            realmente importa.
+          </p>
+          <span class="inline-flex items-center gap-1 text-sm text-primary font-medium mt-4">
+            Conocer más
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- Revisoría Fiscal y Auditoría -->
+        <a href="/servicios/revisoria-fiscal-y-auditoria/" class="group p-8 rounded-2xl bg-white border border-border hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all block">
+          <div class="w-full h-40 rounded-xl mb-5 overflow-hidden">
+            <!-- PLACEHOLDER: Reemplazar con foto de auditoría o revisión fiscal -->
+            <img
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=500&h=200&fit=crop"
+              alt="Revisoría fiscal y auditoría"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
+            Revisoría Fiscal y Auditoría
+          </h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Informes de auditoría independiente, procesos de insolvencia,
+            creación y disolución de empresas, y orientación para personas
+            naturales.
+          </p>
+          <span class="inline-flex items-center gap-1 text-sm text-primary font-medium mt-4">
+            Conocer más
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- Servicios Complementarios -->
+        <a href="/servicios/servicios-complementarios/" class="group p-8 rounded-2xl bg-white border border-border hover:border-primary hover:shadow-xl hover:shadow-primary/5 transition-all block">
+          <div class="w-full h-40 rounded-xl mb-5 overflow-hidden">
+            <!-- PLACEHOLDER: Reemplazar con foto de equipo de trabajo -->
+            <img
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&h=200&fit=crop"
+              alt="Servicios complementarios"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-secondary mb-3 group-hover:text-primary transition-colors">
+            Servicios Complementarios
+          </h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Gestión laboral, seguridad y salud en el trabajo (SG-SST) y
+            asesoría jurídica empresarial para proteger y fortalecer tu
+            operación.
+          </p>
+          <span class="inline-flex items-center gap-1 text-sm text-primary font-medium mt-4">
+            Conocer más
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sectors -->
+  <section class="py-16 md:py-24 bg-secondary">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-semibold uppercase tracking-widest text-primary">Sectores</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+          Sectores que atendemos
+        </h2>
+        <p class="text-white/50">
+          Nuestra experiencia abarca múltiples industrias, adaptando nuestras
+          soluciones a las necesidades específicas de cada sector.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {[
+          { icon: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z", label: "Empresas de servicios" },
+          { icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z", label: "Sector salud" },
+          { icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z", label: "Industria y productoras" },
+          { icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4", label: "Construcción" },
+          { icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6", label: "Propiedad horizontal" },
+          { icon: "M13 10V3L4 14h7v7l9-11h-7z", label: "Emprendedores y Pymes" },
+        ].map((sector) => (
+          <div class="flex items-center gap-3 p-5 rounded-xl bg-white/5 border border-white/10 hover:border-primary/40 transition-colors">
+            <svg class="w-6 h-6 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={sector.icon} />
+            </svg>
+            <span class="text-sm text-white font-medium">{sector.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Objectives -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-semibold uppercase tracking-widest text-primary">Nuestro Compromiso</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-secondary mt-2 mb-4">
+          Objetivos estratégicos
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {[
+          { num: "01", title: "Crecimiento", desc: "Apoyar el crecimiento de nuestros clientes con soluciones a la medida." },
+          { num: "02", title: "Cumplimiento", desc: "Garantizar el cumplimiento normativo en todos los sectores." },
+          { num: "03", title: "Asesoría", desc: "Fortalecer la asesoría financiera para la toma de decisiones." },
+          { num: "04", title: "Confianza", desc: "Construir relaciones de confianza a largo plazo." },
+          { num: "05", title: "Innovación", desc: "Innovar con herramientas modernas y seguras." },
+        ].map((obj) => (
+          <div class="text-center p-6">
+            <div class="text-4xl font-extrabold text-primary/20 mb-3">{obj.num}</div>
+            <h3 class="text-lg font-bold text-secondary mb-2">{obj.title}</h3>
+            <p class="text-sm text-muted">{obj.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-20 md:py-28 overflow-hidden">
+    <!-- Background image with overlay -->
+    <div class="absolute inset-0">
+      <!-- PLACEHOLDER: Reemplazar con foto panorámica de oficina o ciudad colombiana -->
+      <img
+        src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop"
+        alt=""
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-secondary/90"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+        ¿Listo para empezar tu solución contable con nosotros?
+      </h2>
+      <p class="text-white/60 mb-8 max-w-xl mx-auto">
+        Déjanos acompañarte en cada decisión contable y financiera.
+        Contáctanos hoy y descubre cómo podemos ayudarte.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/contactanos/"
+          class="inline-block bg-primary text-secondary font-semibold px-8 py-3.5 rounded-full hover:bg-primary-dark transition-colors shadow-lg"
+        >
+          Contáctanos ahora
+        </a>
+        <a
+          href="https://wa.me/573202386336?text=Hola%20AG%20Soluciones%20Contables%2C%20deseo%20agendar%20una%20asesoria."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

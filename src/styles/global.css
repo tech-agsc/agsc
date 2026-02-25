@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gold */
+  --color-primary: #DDA23C;
+  --color-primary-dark: #C27A18;
+  --color-primary-light: #FEF3A4;
+  --gradient-gold: linear-gradient(90deg, #DDA23C 0%, #C27A18 57.66%, #FEF3A4 100%);
+  --gradient-gold-hover: linear-gradient(90deg, #CF8E27 0%, #AC6710 57.66%, #EED679 100%);
+
+  /* Dark brown / near-black */
+  --color-secondary: #1B1311;
+
+  /* Warm accent */
+  --color-accent: #D4B96A;
+
+  /* Backgrounds & text */
+  --color-base: #FAFAF8;
+  --color-body: #1B1311;
+
+  /* Neutral grays */
+  --color-muted: #6B6B6B;
+  --color-border: #E5E5E0;
+  --color-surface: #F5F5F2;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    background-color: var(--color-base);
+  }
+}
+
+@layer utilities {
+  .gold-gradient-bg {
+    background-color: var(--color-primary);
+    background-image: var(--gradient-gold);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 220ms ease, filter 220ms ease;
+  }
+
+  .gold-gradient-hover:hover {
+    background-image: var(--gradient-gold-hover);
+    background-position: right center;
+  }
+
+  .gold-gradient-text {
+    background-image: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  /* Backward-compatible override for existing CTA/buttons */
+  .bg-primary {
+    background-color: var(--color-primary);
+    background-image: var(--gradient-gold);
+    background-size: 200% 100%;
+    background-position: left center;
+    transition: background-position 220ms ease, filter 220ms ease;
+  }
+
+  .hover\:bg-primary-dark:hover {
+    background-color: var(--color-primary-dark);
+    background-image: var(--gradient-gold-hover);
+    background-position: right center;
+    filter: brightness(0.97);
+  }
+}

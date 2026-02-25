@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:agsolucionescontables.com)",
+      "Bash(npm create astro@latest:*)",
+      "Bash(npx astro add tailwind:*)",
+      "Bash(source:*)",
+      "Bash(nvm install:*)",
+      "Bash(nvm use:*)",
+      "Bash(npm install)"
+    ]
+  }
+}

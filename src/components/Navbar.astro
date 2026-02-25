@@ -1,0 +1,241 @@
+---
+import Logo from "./Logo.astro";
+
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/sobre-nosotros/", label: "Sobre Nosotros" },
+];
+
+const serviceLinks = [
+  { href: "/servicios/contabilidad-integral/", label: "Contabilidad Integral" },
+  { href: "/servicios/tributacion-y-cumplimiento/", label: "Tributación y Cumplimiento" },
+  { href: "/servicios/revisoria-fiscal-y-auditoria/", label: "Revisoría Fiscal y Auditoría" },
+  { href: "/servicios/servicios-complementarios/", label: "Servicios Complementarios" },
+];
+
+const isServicePage = currentPath.startsWith("/servicios/");
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border">
+  <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <Logo />
+
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium transition-colors hover:text-primary",
+              currentPath === link.href ? "text-primary" : "text-secondary",
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+
+      <!-- Services dropdown -->
+      <li class="relative" id="services-dropdown">
+        <button
+          class:list={[
+            "flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary",
+            isServicePage ? "text-primary" : "text-secondary",
+          ]}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Servicios
+          <svg class="w-4 h-4 transition-transform" id="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div
+          id="services-menu"
+          class="hidden absolute top-full left-1/2 -translate-x-1/2 w-64 pt-3"
+        >
+          <div class="bg-white rounded-xl border border-border shadow-xl py-2">
+            {serviceLinks.map((link) => (
+              <a
+                href={link.href}
+                class:list={[
+                  "block px-4 py-2.5 text-sm transition-colors hover:bg-surface hover:text-primary",
+                  currentPath === link.href ? "text-primary bg-surface" : "text-secondary",
+                ]}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <a
+          href="/contactanos/"
+          class:list={[
+            "text-sm font-medium transition-colors hover:text-primary",
+            currentPath === "/contactanos/" ? "text-primary" : "text-secondary",
+          ]}
+        >
+          Contáctanos
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/contactanos/"
+          class="inline-block bg-primary text-secondary text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-primary-dark transition-colors"
+        >
+          Agenda tu asesoría
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 text-secondary"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          id="menu-icon"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-b border-border"
+  >
+    <ul class="flex flex-col px-4 py-4 gap-3">
+      {links.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "block text-sm font-medium transition-colors hover:text-primary",
+              currentPath === link.href ? "text-primary" : "text-secondary",
+            ]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+
+      <!-- Mobile services -->
+      <li>
+        <button
+          id="mobile-services-btn"
+          class:list={[
+            "flex items-center justify-between w-full text-sm font-medium transition-colors hover:text-primary",
+            isServicePage ? "text-primary" : "text-secondary",
+          ]}
+        >
+          Servicios
+          <svg class="w-4 h-4 transition-transform" id="mobile-dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <ul id="mobile-services-menu" class="hidden ml-4 mt-2 space-y-2 border-l-2 border-border pl-4">
+          {serviceLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={[
+                  "block text-sm transition-colors hover:text-primary",
+                  currentPath === link.href ? "text-primary" : "text-muted",
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
+
+      <li>
+        <a
+          href="/contactanos/"
+          class:list={[
+            "block text-sm font-medium transition-colors hover:text-primary",
+            currentPath === "/contactanos/" ? "text-primary" : "text-secondary",
+          ]}
+        >
+          Contáctanos
+        </a>
+      </li>
+      <li class="pt-2">
+        <a
+          href="/contactanos/"
+          class="inline-block bg-primary text-secondary text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-primary-dark transition-colors"
+        >
+          Agenda tu asesoría
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  const icon = document.getElementById("menu-icon");
+
+  btn?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+    menu?.classList.toggle("hidden");
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    if (icon) {
+      icon.setAttribute(
+        "d",
+        isOpen
+          ? "M4 6h16M4 12h16M4 18h16"
+          : "M6 18L18 6M6 6l12 12"
+      );
+    }
+  });
+
+  // Desktop services dropdown
+  const dropdown = document.getElementById("services-dropdown");
+  const servicesMenu = document.getElementById("services-menu");
+  const dropdownArrow = document.getElementById("dropdown-arrow");
+
+  dropdown?.addEventListener("mouseenter", () => {
+    servicesMenu?.classList.remove("hidden");
+    dropdownArrow?.classList.add("rotate-180");
+  });
+
+  dropdown?.addEventListener("mouseleave", () => {
+    servicesMenu?.classList.add("hidden");
+    dropdownArrow?.classList.remove("rotate-180");
+  });
+
+  // Also handle click for touch devices
+  dropdown?.querySelector("button")?.addEventListener("click", () => {
+    servicesMenu?.classList.toggle("hidden");
+    dropdownArrow?.classList.toggle("rotate-180");
+  });
+
+  // Mobile services submenu
+  const mobileServicesBtn = document.getElementById("mobile-services-btn");
+  const mobileServicesMenu = document.getElementById("mobile-services-menu");
+  const mobileArrow = document.getElementById("mobile-dropdown-arrow");
+
+  mobileServicesBtn?.addEventListener("click", () => {
+    mobileServicesMenu?.classList.toggle("hidden");
+    mobileArrow?.classList.toggle("rotate-180");
+  });
+</script>
