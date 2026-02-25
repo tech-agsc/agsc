@@ -1,5 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const officeAddress = "Calle 22A #48-38, Bogota, Colombia";
+const officeAddressQuery = encodeURIComponent(officeAddress);
+const mapsEmbedUrl = `https://www.google.com/maps?q=${officeAddressQuery}&output=embed`;
+const mapsDirectionsUrl = `https://www.google.com/maps/search/?api=1&query=${officeAddressQuery}`;
 ---
 
 <Layout title="Contáctanos" description="Contáctanos para recibir asesoría contable, tributaria y financiera personalizada. AG Soluciones Contables en Colombia.">
@@ -14,8 +19,8 @@ import Layout from "../layouts/Layout.astro";
         <span class="text-primary">crecimiento financiero</span>
       </h1>
       <p class="text-lg text-white/60 max-w-2xl mx-auto">
-        Déjanos tus datos y recibe asesoría contable, tributaria y financiera
-        personalizada para impulsar tu negocio.
+        Encuéntranos en nuestra oficina y conversemos sobre la mejor ruta
+        contable, tributaria y financiera para tu negocio.
       </p>
     </div>
     <div class="absolute -top-20 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
@@ -25,113 +30,37 @@ import Layout from "../layouts/Layout.astro";
   <section class="py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
-        <!-- Form -->
+        <!-- Office Map -->
         <div class="lg:col-span-3">
           <h2 class="text-2xl font-bold text-secondary mb-6">
-            Envíanos un mensaje
+            Visítanos en la oficina
           </h2>
-          <form id="contact-form" class="space-y-5" novalidate>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <div>
-                <label for="nombre" class="block text-sm font-medium text-secondary mb-1.5">
-                  Nombre <span class="text-primary">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="nombre"
-                  name="nombre"
-                  required
-                  class="w-full px-4 py-3 rounded-xl border border-border bg-white text-body placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                  placeholder="Tu nombre"
-                />
-                <p class="hidden mt-1 text-xs text-red-500" data-error="nombre">Por favor ingresa tu nombre.</p>
-              </div>
-              <div>
-                <label for="apellido" class="block text-sm font-medium text-secondary mb-1.5">
-                  Apellido <span class="text-primary">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="apellido"
-                  name="apellido"
-                  required
-                  class="w-full px-4 py-3 rounded-xl border border-border bg-white text-body placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                  placeholder="Tu apellido"
-                />
-                <p class="hidden mt-1 text-xs text-red-500" data-error="apellido">Por favor ingresa tu apellido.</p>
-              </div>
-            </div>
-
-            <div>
-              <label for="email" class="block text-sm font-medium text-secondary mb-1.5">
-                Correo electrónico <span class="text-primary">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full px-4 py-3 rounded-xl border border-border bg-white text-body placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                placeholder="tu@correo.com"
-              />
-              <p class="hidden mt-1 text-xs text-red-500" data-error="email">Por favor ingresa un correo válido.</p>
-            </div>
-
-            <div>
-              <label for="telefono" class="block text-sm font-medium text-secondary mb-1.5">
-                Teléfono
-              </label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                class="w-full px-4 py-3 rounded-xl border border-border bg-white text-body placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                placeholder="+57 300 000 0000"
-              />
-            </div>
-
-            <div>
-              <label for="mensaje" class="block text-sm font-medium text-secondary mb-1.5">
-                Mensaje <span class="text-primary">*</span>
-              </label>
-              <textarea
-                id="mensaje"
-                name="mensaje"
-                rows="5"
-                required
-                class="w-full px-4 py-3 rounded-xl border border-border bg-white text-body placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-none"
-                placeholder="¿En qué podemos ayudarte?"
-              ></textarea>
-              <p class="hidden mt-1 text-xs text-red-500" data-error="mensaje">Por favor escribe tu mensaje.</p>
-            </div>
-
-            <div class="flex items-start gap-2">
-              <input
-                type="checkbox"
-                id="privacidad"
-                name="privacidad"
-                required
-                class="mt-1 w-4 h-4 rounded border-border text-primary focus:ring-primary/30"
-              />
-              <label for="privacidad" class="text-sm text-muted">
-                Acepto la <a href="#" class="text-primary hover:underline">política de privacidad</a>
-                y el tratamiento de mis datos personales.
-                <span class="text-primary">*</span>
-              </label>
-            </div>
-            <p class="hidden mt-1 text-xs text-red-500" data-error="privacidad">Debes aceptar la política de privacidad.</p>
-
-            <button
-              type="submit"
-              class="w-full sm:w-auto bg-primary text-secondary font-semibold px-8 py-3.5 rounded-full hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
+          <p class="text-muted mb-6">
+            Esta es la ubicación de nuestra oficina. También puedes abrir la ruta
+            directamente desde Google Maps.
+          </p>
+          <div class="rounded-xl overflow-hidden border border-border bg-white">
+            <iframe
+              src={mapsEmbedUrl}
+              title="Ubicación de la oficina en Google Maps"
+              class="w-full h-[420px]"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="mt-5 p-5 rounded-xl bg-white border border-border">
+            <p class="text-sm font-semibold text-secondary mb-1">Dirección de la oficina</p>
+            <p class="text-sm text-muted">{officeAddress}</p>
+            <a
+              href={mapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex mt-4 bg-primary text-secondary font-semibold px-5 py-2.5 rounded-full hover:bg-primary-dark transition-colors"
             >
-              Enviar mensaje
-            </button>
-
-            <div id="form-success" class="hidden p-4 rounded-xl bg-primary/10 border border-primary/30 text-secondary text-sm">
-              ¡Gracias por contactarnos! Te responderemos lo antes posible.
-            </div>
-          </form>
+              Ver ruta en Google Maps
+            </a>
+          </div>
         </div>
 
         <!-- Contact Info Sidebar -->
@@ -141,18 +70,6 @@ import Layout from "../layouts/Layout.astro";
           </h2>
 
           <div class="space-y-6">
-            <!-- Image -->
-            <div class="rounded-xl overflow-hidden border border-border">
-              <!-- PLACEHOLDER: Reemplazar con foto de la oficina de AG Soluciones Contables -->
-              <!-- Sugerencia: Fachada de la oficina, o recepción con el logo visible -->
-              <img
-                src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=200&fit=crop"
-                alt="Oficina AG Soluciones Contables"
-                class="w-full h-[180px] object-cover"
-                loading="lazy"
-              />
-            </div>
-
             <!-- Email -->
             <div class="flex items-start gap-4 p-5 rounded-xl bg-white border border-border">
               <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
@@ -244,67 +161,3 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
-
-<script>
-  const form = document.getElementById("contact-form") as HTMLFormElement;
-  const successMsg = document.getElementById("form-success");
-
-  function showError(name: string) {
-    const el = document.querySelector(`[data-error="${name}"]`) as HTMLElement;
-    el?.classList.remove("hidden");
-  }
-
-  function hideError(name: string) {
-    const el = document.querySelector(`[data-error="${name}"]`) as HTMLElement;
-    el?.classList.add("hidden");
-  }
-
-  function hideAllErrors() {
-    document.querySelectorAll("[data-error]").forEach((el) => {
-      el.classList.add("hidden");
-    });
-  }
-
-  form?.addEventListener("submit", (e) => {
-    e.preventDefault();
-    hideAllErrors();
-
-    const data = new FormData(form);
-    let valid = true;
-
-    if (!data.get("nombre")?.toString().trim()) {
-      showError("nombre");
-      valid = false;
-    }
-    if (!data.get("apellido")?.toString().trim()) {
-      showError("apellido");
-      valid = false;
-    }
-    const email = data.get("email")?.toString().trim() ?? "";
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showError("email");
-      valid = false;
-    }
-    if (!data.get("mensaje")?.toString().trim()) {
-      showError("mensaje");
-      valid = false;
-    }
-    if (!data.get("privacidad")) {
-      showError("privacidad");
-      valid = false;
-    }
-
-    if (!valid) return;
-
-    form.classList.add("hidden");
-    successMsg?.classList.remove("hidden");
-  });
-
-  // Real-time validation clearing
-  form?.querySelectorAll("input, textarea").forEach((input) => {
-    input.addEventListener("input", () => {
-      const name = (input as HTMLInputElement).name;
-      if (name) hideError(name);
-    });
-  });
-</script>
