@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { WHATSAPP_URL } from "../utils/whatsapp";
 
 const officeAddress = "Calle 22A #48-38, Bogota, Colombia";
 const officeAddressQuery = encodeURIComponent(officeAddress);
@@ -110,9 +111,7 @@ const mapsDirectionsUrl = `https://www.google.com/maps/search/?api=1&query=${off
               <div>
                 <h3 class="text-sm font-semibold text-white mb-1">WhatsApp</h3>
                 <a
-                  href="https://wa.me/573202386336?text=Hola%20AG%20Soluciones%20Contables%2C%20deseo%20agendar%20una%20asesoria."
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={WHATSAPP_URL}
                   class="text-sm text-white/70 hover:text-primary transition-colors"
                 >
                   Escríbenos por WhatsApp

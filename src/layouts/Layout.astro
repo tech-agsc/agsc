@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import { WHATSAPP_URL } from "../utils/whatsapp";
 import "../styles/global.css";
 
 interface Props {
@@ -12,9 +13,6 @@ const {
   title,
   description = "Soluciones contables, tributarias y financieras a la medida para empresas, emprendedores y personas naturales en Colombia.",
 } = Astro.props;
-
-const whatsappUrl =
-  "https://wa.me/573202386336?text=Hola%20AG%20Soluciones%20Contables%2C%20deseo%20agendar%20una%20asesoria.";
 ---
 
 <!doctype html>
@@ -39,9 +37,7 @@ const whatsappUrl =
     </main>
     <Footer />
     <a
-      href={whatsappUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={WHATSAPP_URL}
       aria-label="Escríbenos por WhatsApp"
       class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-black/35 transition-transform duration-200 hover:scale-105 hover:bg-[#1DB954] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-secondary md:bottom-7 md:right-7"
     >

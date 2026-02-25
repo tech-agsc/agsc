@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { WHATSAPP_URL } from "../utils/whatsapp";
 ---
 
 <Layout title="Inicio" description="AG Soluciones Contables: soluciones contables, tributarias y financieras a la medida para empresas, emprendedores y personas naturales en Colombia.">
@@ -305,9 +306,7 @@ import Layout from "../layouts/Layout.astro";
           Contáctanos ahora
         </a>
         <a
-          href="https://wa.me/573202386336?text=Hola%20AG%20Soluciones%20Contables%2C%20deseo%20agendar%20una%20asesoria."
-          target="_blank"
-          rel="noopener noreferrer"
+          href={WHATSAPP_URL}
           class="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
