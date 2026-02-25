@@ -8,8 +8,16 @@
   --gradient-gold: linear-gradient(90deg, #DDA23C 0%, #C27A18 57.66%, #FEF3A4 100%);
   --gradient-gold-hover: linear-gradient(90deg, #CF8E27 0%, #AC6710 57.66%, #EED679 100%);
 
-  /* Dark brown / near-black */
-  --color-secondary: #1B1311;
+  /* Deep black */
+  --color-secondary: #050507;
+  --gradient-secondary-sheen:
+    radial-gradient(
+      120% 95% at 12% 0%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.03) 36%,
+      rgba(255, 255, 255, 0) 62%
+    ),
+    linear-gradient(145deg, #111216 0%, #07080a 54%, #020203 100%);
 
   /* Warm accent */
   --color-accent: #D4B96A;
@@ -39,6 +47,13 @@
 }
 
 @layer utilities {
+  .dark-sheen-bg {
+    background-color: var(--color-secondary);
+    background-image: var(--gradient-secondary-sheen);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
   .gold-gradient-bg {
     background-color: var(--color-primary);
     background-image: var(--gradient-gold);
@@ -74,5 +89,13 @@
     background-image: var(--gradient-gold-hover);
     background-position: right center;
     filter: brightness(0.97);
+  }
+
+  /* Backward-compatible override for dark sections */
+  .bg-secondary {
+    background-color: var(--color-secondary);
+    background-image: var(--gradient-secondary-sheen);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
 }
